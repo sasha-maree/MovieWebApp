@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.List;
 
-@Document(collection = "Movies") //so the framework knows that this class documents each movie
+@Document(collection = "movies") //so the framework knows that this class documents each movie
 @Data // takes care of all the getters and setter methods
 @AllArgsConstructor // a constructor that takes all the private fields as arguments
 @NoArgsConstructor // a constructor that takes no parameters at all
