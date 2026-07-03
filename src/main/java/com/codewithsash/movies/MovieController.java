@@ -5,11 +5,8 @@ package com.codewithsash.movies;
 import java.util.List;
 import java.util.Optional;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,9 +26,9 @@ public class MovieController {
     return new ResponseEntity<List<Movie>>(movieService.allMovies(), HttpStatus.OK);
   }
 
-  @GetMapping("/{id}") // search a movie by id
-  public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable ObjectId id) { //whatever comes from the path, we want to convert that to an objectId called id
-    return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(id), HttpStatus.OK);
+  @GetMapping("/{imdbId}") // search a movie by id
+  public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId) { //whatever comes from the path, we want to convert that to an string called imdbId
+    return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(imdbId), HttpStatus.OK);
   }
   
 }

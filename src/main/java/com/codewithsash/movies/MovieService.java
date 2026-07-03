@@ -3,11 +3,9 @@ package com.codewithsash.movies;
 import java.util.List;
 import java.util.Optional;
 
-import org.bson.types.ObjectId;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 @Service
 public class MovieService {
@@ -19,7 +17,7 @@ public class MovieService {
     return movieRepository.findAll();
   }
 
-  public Optional<Movie> singleMovie(ObjectId id) { //optional --> if the id is null
-    return movieRepository.findById(id);
+  public Optional<Movie> singleMovie(String imdbId) { //optional --> if the id is null
+    return movieRepository.findByImdbId(imdbId);
   }
 }
